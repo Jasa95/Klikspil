@@ -1,0 +1,34 @@
+#Forgrund {
+  translate: 0% -1%;
+  position: absolute;
+}
+#Lars {
+  width: 5%;
+  translate: 170% 45%;
+  position: fixed;
+}
+#Jakob {
+  width: 9%;
+  position: fixed;
+  translate: 00% 100%;
+}
+#Mai {
+  width: 6%;
+  position: fixed;
+}
+#Pernille {
+  width: 10%;
+  position: fixed;
+}
+#Pia {
+  width: 7%;
+  translate: 180%;
+  position: absolute;
+}
+
+.graphic {
+  width: fit-content;
+  transform-origin: 0% 100%;
+  position: absolute;
+}
+/* Ovenstående 'graphic'-class er for- og baggrund sammen */
