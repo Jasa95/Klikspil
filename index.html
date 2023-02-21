@@ -6,88 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Midterregeringsspil</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .grid-container {
-        display: grid;
-        grid-template-areas:
-          "header header header header header"
-          "left middle middle middle right"
-          "footer footer footer footer footer";
-        background-color: fuchsia;
-        padding: 10px;
-        gap: 1vw;
-      }
-      .header {
-        grid-area: header;
-        background-color: wheat;
-      }
-      .left {
-        grid-area: left;
-      }
-      .middle {
-        grid-area: middle;
-      }
-      .right {
-        grid-area: right;
-      }
-      .footer {
-        grid-area: footer;
-        padding: 10px;
-        background-color: yellowgreen;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
-    <div class="grid-container"></div>
-    <div class="header">
-      <h2>Header</h2>
-    </div>
-    <div class="left" style="background-color: #aaa">Column</div>
-    <div class="middle" style="background-color: #bbb">Column</div>
-    <div class="right" style="background-color: #ccc">Column</div>
-    <div class="footer" style="background-color: aqua">Footer</div>
     <div id="screen">
       <div id="game">
-        <div id="game_background">
-          <img
-            src="images/Baggrund.jpg"
-            alt="Christiansborg foto"
-            id="Baggrund"
-            class="graphic"
-          />
-        </div>
+        <div id="game_background"></div>
         <div id="game_elements">
           <div id="game_elements">
-            <div class="coins1_container">
-              <img
-                src="images/Mai_V.png"
-                alt="HOVEDPORTRÆT AF MIDTERPARTISPOLITIKER"
-                id="Mai"
-              />
-              <img src="images/Pernille_Vermund.png" alt="eow" id="Pernille" />
-              <img src="images/Pia-Olsen-Dyhr.png" alt="" id="Pia" />
-            </div>
-            <div class="coins2_container">
-              <img src="MANGLER_BILLEDE" alt="ÅHLÅLÅ" />
-            </div>
-            <div class="bomb_container">
-              <img
-                src="images/Lars_L.png"
-                alt="HOVEDPORTRÆT AF LARS LØKKE"
-                id="Lars"
-              />
-              <img src="images/Jakob_Elleman_Jensen.png" alt="" id="Jakob" />
-            </div>
+            <div class="slempolitiker1_container"></div>
+            <div class="slempolitiker2_container"></div>
+            <div class="slempolitiker3_container"></div>
+            <div class="slempolitiker4_container"></div>
+            <div class="coins2_container"></div>
+            <div class="bomb_container"></div>
           </div>
         </div>
-        <div id="game_foreground">
-          <img
-            src="images/Forgrund.png"
-            alt="Forgrund"
-            id="Forgrund"
-            class="graphic"
-          />
-        </div>
+        <div id="game_foreground"></div>
         <div id="game_ui">
           <div id="scoreboard"></div>
           <div id="lifeboard"></div>
