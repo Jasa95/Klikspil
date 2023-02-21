@@ -17,3 +17,7 @@ body {
   background-image: url(images/Baggrund.jpg);
   background-size: cover;
 }
+#Mai {
+  size: 500%;
+  top: 0%;
+}
