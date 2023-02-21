@@ -13,11 +13,19 @@ body {
   position: absolute;
   width: 100%;
   grid-area: 1/1;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/12;
   background-image: url(images/Baggrund.jpg);
   background-size: cover;
 }
+#game_foreground {
+  position: absolute;
+  width: 100%;
+  grid-area: 1/1;
+  aspect-ratio: 16/12;
+  background-image: url(images/Forgrund.png);
+}
 #Mai {
-  size: 500%;
+  size: 0.5;
   top: 0%;
+  position: absolute;
 }
