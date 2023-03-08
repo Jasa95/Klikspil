@@ -93,10 +93,16 @@
                 .Fyld dine liv op ved at klikke på flyvende hjerter - hvis du allerede har fyldt op, får du +++ point i stedet</p>
             <button id="btn_start" class="pulse">Start</button>
         </div>
-        <div id="game_over" class="hidden">Game over - you died 😇</div>
+        <div id="game_over" class="hidden">Game over - du er færdig 😇 
+          <br>
+        Så må du ud i Dronningerunde, min ven
+        <br>
+      <button id="btn_restart" class="pulse">Spil igen</button>
+    </div>
         <div id="level_complete" class="hidden">
           YAAAAS BISH, YOU MADE IT AND WON ETERNAL GLORY 🤩🤩🤩
-                      <button id="btn_start" class="pulse">Spil igen</button>
+          <br>
+                      <button id="btn_restart" class="pulse">Spil igen</button>
 
         </div>
       </div>
@@ -104,6 +110,7 @@
 <audio id="mette" src="audio/lev_med_det.mp3"></audio>
 <audio id="lars" src="audio/hvordan_gaar_det_lars.mp3"></audio>
 <audio id="sound_background" src="audio/sound_background.mp3"></audio>
+<audio id="sound_game_over" src="audio/sound_game_over.mp3"></audio>
     <script src="app.js"></script>
   </body>
 </html>
