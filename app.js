@@ -6,20 +6,33 @@ let lives = 0;
 
 function start() {
   console.log("JavaScript kører!");
+  document.querySelector("#btn_start").addEventListener("click", startGame);
+  console.log("Music by StudioKolomna from Pixabay");
+}
 
+function startGame() {
   // nulstil point og liv
   points = 0;
   lives = 3;
 
-  // Start animationer
-  document.querySelector("#coin1_container").classList.add("running");
-  document.querySelector("#coin2_container").classList.add("running");
-  document.querySelector("#coin3_container").classList.add("running");
-  document.querySelector("#coin4_container").classList.add("running");
-  document.querySelector("#bomb1_container").classList.add("running");
-  document.querySelector("#bomb2_container").classList.add("running");
-  document.querySelector("#heart_container").classList.add("running");
+  // skjul startskærm
+  document.querySelector("#start").classList.add("hidden");
 
+  // Start baggrundsmusik
+  document.querySelector("#sound_background").play();
+
+  // start alle animationer
+  startAllAnimations();
+
+  function startAllAnimations() {
+    document.querySelector("#coin1_container").classList.add("running");
+    document.querySelector("#coin2_container").classList.add("running");
+    document.querySelector("#coin3_container").classList.add("running");
+    document.querySelector("#coin4_container").classList.add("running");
+    document.querySelector("#bomb1_container").classList.add("running");
+    document.querySelector("#bomb2_container").classList.add("running");
+    document.querySelector("#heart_container").classList.add("running");
+  }
   // Registrer click
   document
     .querySelector("#coin1_container")
@@ -239,7 +252,7 @@ function clickBomb() {
   document
     .querySelector("#bomb1_container")
     .addEventListener("animationend", bombGone);
-
+  document.querySelector("#lars").play();
   decrementLives();
 }
 function clickBomb2() {
@@ -353,24 +366,27 @@ function heartGone() {
 }
 
 function incrementPoints() {
-  console.log("Giv point");
+  console.log("+Point");
+  document.querySelector("#mette").play();
   points++;
-  console.log("har nu " + points + " point");
+  console.log(points + "point samlet");
   displayPoints();
-  if (points >= 10) {
+  if (points >= 1) {
     levelComplete();
   }
 }
 
 function displayPoints() {
-  console.log("vis point");
+  console.log("viser point");
   document.querySelector("#coin_count").textContent = points;
 }
 
 function decrementLives() {
   console.log("Åh nej, du mistede en samarbejdspartner og et liv! </3");
   showDecrementedLives();
+
   lives--;
+
   if (lives <= 0) {
     gameOver();
   }
@@ -378,10 +394,10 @@ function decrementLives() {
 
 function incrementLives() {
   if (lives == 3) {
-    console.log("Full lives, you get and extra coin yay!");
+    console.log("På, brors, du har fuldt liv og får ekstra point i stedet!");
     incrementPoints();
   } else {
-    console.log("få et liv");
+    console.log("+Liv");
     lives++;
     showIncrementedLives();
   }
@@ -396,11 +412,55 @@ function showIncrementedLives() {
   document.querySelector("#heart" + lives).classList.remove("broken_heart");
   document.querySelector("#heart" + lives).classList.add("active_heart");
 }
+
 function levelComplete() {
-  console.log("Level won!");
+  console.log("Sygt! Nu skal dronningen bare underskrive");
   document.querySelector("#level_complete").classList.remove("hidden");
+  stopGame();
+  document.querySelector("#sound_win").play();
 }
+
 function gameOver() {
-  console.log("Game over - you died!");
+  console.log("Game over - du valgte for mange dejlige mænd fra!");
   document.querySelector("#game_over").classList.remove("hidden");
+  stopGame();
+  document.querySelector("#sound_game_over").play();
+}
+
+function stopGame() {
+  // Stop animationer
+  document.querySelector("#coin1_container").classList.remove("running");
+  document.querySelector("#coin2_container").classList.remove("running");
+  document.querySelector("#coin3_container").classList.remove("running");
+  document.querySelector("#coin4_container").classList.remove("running");
+  document.querySelector("#bomb1_container").classList.remove("running");
+  document.querySelector("#bomb2_container").classList.remove("running");
+  document.querySelector("#heart_container").classList.remove("running");
+
+  // Fjern click
+  document
+    .querySelector("#coin1_container")
+    .removeEventListener("mousedown", clickCoin);
+  document
+    .querySelector("#coin2_container")
+    .removeEventListener("mousedown", clickCoin);
+  document
+    .querySelector("#coin3_container")
+    .removeEventListener("mousedown", clickCoin);
+  document
+    .querySelector("#coin4_container")
+    .removeEventListener("mousedown", clickCoin);
+  document
+    .querySelector("#bomb1_container")
+    .removeEventListener("mousedown", clickBomb);
+  document
+    .querySelector("#bomb2_container")
+    .removeEventListener("mousedown", clickBomb);
+  document
+    .querySelector("#heart_container")
+    .removeEventListener("mousedown", clickHeart);
+
+  // Stop og nulstil lyde, fx baggrundsmusik
+  document.querySelector("#sound_background").pause();
+  document.querySelector("#sound_background").currentTime = 0;
 }

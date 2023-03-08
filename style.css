@@ -10,6 +10,7 @@ body {
 
 h2 {
   font-size: 4em;
+  margin: 0;
 }
 
 #screen {
@@ -44,23 +45,26 @@ h2 {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+  background-image: linear-gradient(150deg, #ff0303 0%, #790909 100%);
   color: #ffffff;
 }
 
-#level_complete {
+#level_complete,
+#start {
   grid-area: 1 /1;
   z-index: 999;
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  background-image: linear-gradient(150deg, #7da676 30%, #fb5908 100%);
   color: #ffffff;
 }
 
 .hidden,
 #game_over.hidden,
-#level_complete.hidden {
+#level_complete.hidden,
+#game.hidden,
+#start.hidden {
   display: none;
 }
 
@@ -68,17 +72,17 @@ h2 {
 
 #coin1_container {
   position: absolute;
-  transform: rotate(22deg);
-  scale: 50%;
+  width: 7vw;
+
   top: 0;
-  left: 30vw;
+  left: 45vw;
 }
 #coin1_sprite {
-  scale: 38%;
+  width: 100%;
 }
 #coin2_container {
   position: absolute;
-  scale: 45%;
+  width: 9vw;
   top: 0;
   left: 40vw;
 }
@@ -89,7 +93,7 @@ h2 {
 
 #coin3_container {
   position: absolute;
-  scale: 70%;
+  width: 7vw;
   top: 0;
   left: 70vw;
 }
@@ -97,20 +101,21 @@ h2 {
 #coin3_sprite {
   width: 100%;
 }
+
 #coin4_container {
   position: absolute;
-  scale: 70%;
+  width: 10vw;
   top: 0;
-  left: 70vw;
+  left: 58vw;
 }
 
 #coin4_sprite {
-  width: 70%;
+  width: 100%;
 }
 
 #bomb1_container {
   position: absolute;
-  scale: 30%;
+  width: 5vw;
   top: 0;
   left: 30vw;
 }
@@ -121,7 +126,7 @@ h2 {
 
 #bomb2_container {
   position: absolute;
-  scale: 35%;
+  width: 9vw;
   top: 0;
   left: 10vw;
 }
@@ -132,13 +137,34 @@ h2 {
 
 #heart_container {
   position: absolute;
-  scale: 10%;
+  width: 5vw;
   top: 0;
   left: 55vw;
 }
 
 #heart_sprite {
   width: 100%;
+}
+
+/* position classes */
+.position1 {
+  left: 10vw;
+}
+
+.position2 {
+  left: 40vw;
+}
+
+.position3 {
+  left: 70vw;
+}
+
+.position4 {
+  left: 30vw;
+}
+
+.position5 {
+  left: 55vw;
 }
 
 /* UI */
@@ -159,23 +185,26 @@ h2 {
   gap: 0.1em;
   transform: right;
 }
-/* #coin_count {
+#coin_count {
   white-space: nowrap;
   text-align: right;
-} */
+}
 
-#coin_image {
-  width: 5em;
+#coin_image_sprite {
+  width: 6em;
+  /* position: absolute; */
+  margin-top: -2vw;
 }
 
 #life_board {
   margin-block-start: 0.1em;
+  margin-top: -5vw;
   display: grid;
   grid-template-columns: 2em 2em 2em;
 }
 
 #life_board img {
-  width: 100%;
+  width: 90%;
 }
 
 .active_heart {
@@ -183,30 +212,29 @@ h2 {
 }
 
 .broken_heart {
-  filter: grayscale(75%) blur(0.5px);
+  filter: grayscale(50%) blur(0.5px);
 }
 
 /* Animations */
 
 .running {
   animation-name: running;
-  animation-duration: 6s;
+  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes running {
   0% {
-    transform: translate(0, 100vw);
+    transform: translate(0, 50vw);
   }
-  20% {
-    transform: translate(-20vw, 40vw);
-  }
-  50% {
-    transform: translate(20vw, 40vw);
+
+  45% {
+    transform: translate(-20vw, -5vw);
   }
   100% {
-    transform: translate(0, -30vw);
+    transform: translate(20vw, 25vw);
   }
 }
 
@@ -266,4 +294,33 @@ h2 {
 
 .paused {
   animation-play-state: paused;
+}
+
+@keyframes pulse_kf {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation-name: pulse_kf;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 6em;
+  margin: auto;
+  background-color: #4463eb;
+  color: #fff4bf;
+  border: 4px solid #e62727;
+  cursor: grab;
+  border-radius: 10px;
 }
